@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>GlueJS</title>
+</head>
+<body>
+
+<h3>Proof of Concept</h3>
+<h1>GlueJS v.0.7.0</h1>
+<h2>Pluggable library with jQuery-like API</h2>
+  
+<button>GlueJS</button>
+
+<p id="one" title="xxx">Para</p>
+<p class="note">Para</p>
+<p>Para</p>
+<span>Span</span>
+<p>Para</p>
+<p>Para</p>
+
+<form id="baz">
+	<div>
+    <input id="foo" name="bar" type="text" value="" />
+	</div>
+</form>
+<form>
+	<div>
+    <label for="user">Your name: </label>
+    <input id="user" name="user2" type="text" value="" />
+    <input id="send" type="submit" value="Send" />
+	</div>
+</form>
+
+
+<!-- The result of the search will be rendered inside this div -->
+<h3 id="result"></h3>
+
+<script src="../../src/glue.core.js"></script>
+<script src="../../src/glue.utilities.js"></script>
+<script src="../../src/glue.dom.js"></script>
+<script src="../../src/glue.event.js"></script>
+<script src="../../src/glue.ajax.js"></script>
+<script src="../../src/glue.cookie.js"></script>
+<script src="../../src/glue.template.js"></script>
+<script src="../../src/glue.promise.js"></script>
+<script src="../../src/glue.misc.js"></script>
+  
+<script>
+var $ = glue;
+$('p:not(.note), span').each(function (elem, index) {
+  $(this).css({
+    color: 'red',
+    fontWeight: 'bold'
+  });
+  if (elem.nodeName !== 'SPAN') {
+    elem.textContent += ' ' + index;
+  }
+});
+
+$('p.note').css('color', 'green');
+
+//alert($('p.note').css('color'));
+
+$(document).ready(function () {
+  $('button').on('click', function () {
+    alert('I am a ' + this.nodeName);
+    alert('My name is ' + this.textContent);
+  });
+});
+
+$("#foo").on('submit', function(event) {
+  event.preventDefault();
+	var data = $(this).serialize();
+  $.post("ajax/test.php", data, function(data){
+    $("#result").html('Submitted successfully');
+    alert(data);
+  });		
+});
+
+</script>
+</body>
+</html>
