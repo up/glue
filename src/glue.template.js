@@ -32,7 +32,7 @@
   }
   
   /**
-   * PUBLIC ∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼
+   PUBLIC ∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼
   */
     
   glue.template = function(tmpl, data) {
