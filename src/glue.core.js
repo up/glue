@@ -28,8 +28,8 @@
     }
     return nodeArray;
   }
-	
-	function factory(context, obj) {
+  
+  function factory(context, obj) {
     if(obj){
       selector = obj;
       if(glue.isNumeric(obj)) {
@@ -47,9 +47,9 @@
         arr.push.apply(context, args);
       }        
     }
-	}
+  }
     
-	function get(context, index) {
+  function get(context, index) {
     if (!context.length) {
       return;
     } else if(index === null || index === undefined) {
@@ -59,9 +59,9 @@
       return context[context.length + index];
     } 
     return context[index];
-	}
+  }
 
-	function each(context, callback){
+  function each(context, callback){
     var collection = context, 
       len = collection.length,
       i = 0;
@@ -69,14 +69,14 @@
       callback.call( collection[i], collection[i], i, collection);
     }
     return collection;
-	}
+  }
 
-	function extend(context, extentions){
+  function extend(context, extentions){
     if ( extentions ) {
       extentions = glue.extend(context, extentions);
       glue.prototype = glue.fn = api.constructor.prototype = extentions;
-    }				
-	}
+    }        
+  }
 
   function getSelector(){
     return selector;
@@ -89,19 +89,19 @@
      * obj: number, selector, dom element or function
      */
     constructor: function (obj) {
-			factory(this, obj);
+      factory(this, obj);
     },
     
     get: function (index) {
-			return get(this, index);
+      return get(this, index);
     },
     
     extend: function(extentions) {  
-			extend(this, extentions);
+      extend(this, extentions);
     },
     
     each: function (callback) {
-			return each(this, callback);
+      return each(this, callback);
     }
   };
   
@@ -113,7 +113,7 @@
   // API Publishing
   glue.prototype = glue.fn = api.constructor.prototype = api;
   /* glue.isTest = false; */
-	glue.version = version;
+  glue.version = version;
   glue.getSelector = getSelector;
     
 }(window, document));
