@@ -12,16 +12,16 @@
   <!-- <script type="text/javascript" src="../build/jasmine-reporters/src/jasmine.console_reporter.js"></script> -->
   <script type="text/javascript" src="lib/mock-ajax.js"></script>
 
-	<!-- include any common supporting source files and libraries here... -->
-	<script type="text/javascript" src="../src/glue.core.js"></script>
-	<script type="text/javascript" src="../src/glue.utilities.js"></script>
-	<script type="text/javascript" src="../src/glue.dom.js"></script>
-	<script type="text/javascript" src="../src/glue.event.js"></script>
-	<script type="text/javascript" src="../src/glue.ajax.js"></script>
-	<script type="text/javascript" src="../src/glue.cookie.js"></script>
-	<script type="text/javascript" src="../src/glue.template.js"></script>
-	<script type="text/javascript" src="../src/glue.promise.js"></script>
-	<script type="text/javascript" src="../src/glue.misc.js"></script>
+  <!-- include any common supporting source files and libraries here... -->
+  <script type="text/javascript" src="../src/glue.core.js"></script>
+  <script type="text/javascript" src="../src/glue.utilities.js"></script>
+  <script type="text/javascript" src="../src/glue.dom.js"></script>
+  <script type="text/javascript" src="../src/glue.event.js"></script>
+  <script type="text/javascript" src="../src/glue.ajax.js"></script>
+  <script type="text/javascript" src="../src/glue.cookie.js"></script>
+  <script type="text/javascript" src="../src/glue.template.js"></script>
+  <script type="text/javascript" src="../src/glue.promise.js"></script>
+  <script type="text/javascript" src="../src/glue.misc.js"></script>
 
   <!-- include spec files here... -->
   <script type="text/javascript" src="spec/glueHelper.js"></script>
@@ -34,66 +34,65 @@
   <script type="text/javascript" src="spec/glueTemplateSpec.js"></script>
   <script type="text/javascript" src="spec/gluePromiseSpec.js"></script>
   <script type="text/javascript" src="spec/glueMiscSpec.js"></script>
-	<style>
-	body {
-		padding-bottom: 40px;
-	}
-	* {
-		font-size: 1.03em;
-		line-height: 1.1em;
-	}
-	#HTMLReporter > .suite {
-	    margin: 0;
-	}
-	#HTMLReporter div a {
-    padding-top: 4px;		
-    padding-bottom: 4px;		
-	    font-weight: bold;
-			display: block;
+  <style>
+  body {
+    padding-bottom: 40px;
+  }
+  * {
+    font-size: 1.03em;
+    line-height: 1.1em;
+  }
+  #HTMLReporter > .suite {
+      margin: 0;
+  }
+  #HTMLReporter div a {
+    padding-top: 4px;    
+    padding-bottom: 4px;    
+      font-weight: bold;
+      display: block;
  }
-	#HTMLReporter .specSummary.passed a {
-    padding-top: 0;		
-      padding-bottom: 0;		
-	    font-weight: normal;
-			position: relative;
-			top: 4px;
-	}
-	body > div > div > div > div > a {
-	  padding-top: 16px !important;
-	  padding-bottom: 8px !important;
-  	font-size: 1.2em;
-	}
-	</style>
+  #HTMLReporter .specSummary.passed a {
+    padding-top: 0;    
+    padding-bottom: 0;    
+    font-weight: normal;
+    position: relative;
+    top: 4px;
+  }
+  body > div > div > div > div > a {
+    padding-top: 16px !important;
+    padding-bottom: 8px !important;
+    font-size: 1.2em;
+  }
+  </style>
   <script type="text/javascript">
+  (function() {
     
-    (function() {
-      
-      var jasmineEnv = jasmine.getEnv();
-      jasmineEnv.updateInterval = 1000;
-      
-      var htmlReporter = new jasmine.HtmlReporter();
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
+    
+    var htmlReporter = new jasmine.HtmlReporter();
 
-      jasmineEnv.addReporter(htmlReporter);
+    jasmineEnv.addReporter(htmlReporter);
 
-      jasmineEnv.specFilter = function(spec) {
-        return htmlReporter.specFilter(spec);
-      };
+    jasmineEnv.specFilter = function(spec) {
+      return htmlReporter.specFilter(spec);
+    };
 
-      var currentWindowOnload = window.onload;
+    var currentWindowOnload = window.onload;
 
-      window.onload = function() {
-        if (currentWindowOnload) {
-          currentWindowOnload();
-        }
-        execJasmine();
-        
-      };
-
-      function execJasmine() {
-        jasmineEnv.execute();
+    window.onload = function() {
+      if (currentWindowOnload) {
+        currentWindowOnload();
       }
+      execJasmine();
+      
+    };
 
-    })();
+    function execJasmine() {
+      jasmineEnv.execute();
+    }
+
+  })();
   </script>
 
 </head>
