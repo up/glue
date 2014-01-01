@@ -14,17 +14,23 @@ module.exports = function(config) {
     files: [
       '../src/glue.core.js',
       '../src/glue.utilities.js',
+      '../src/glue.cookie.js',
       '../src/glue.dom.js',
       '../src/glue.event.js',
       '../src/glue.ajax.js',
       '../src/glue.misc.js',
+      '../src/glue.template.js',
+      '../src/glue.promise.js',
       'spec/glueHelper.js',
       'spec/glueCoreSpec.js',
+      'spec/glueCookieSpec.js',
       'spec/glueUtilitiesSpec.js',
       'spec/glueDomSpec.js',
       'spec/glueEventSpec.js',
       'spec/glueAjaxSpec.js',
       'spec/glueMiscSpec.js'
+      'spec/glueTemplateSpec.js'
+      'spec/gluePromiseSpec.js'
     ],
 
     // list of files to exclude
@@ -47,6 +53,9 @@ module.exports = function(config) {
       '../src/glue.dom.js': ['coverage'],
       '../src/glue.misc.js': ['coverage'],
       '../src/glue.event.js': ['coverage'],
+      '../src/glue.cookie.js': ['coverage'],
+      '../src/glue.template.js': ['coverage'],
+      '../src/glue.promise.js': ['coverage'],
       '../src/glue.ajax.js': ['coverage']
     },
     
