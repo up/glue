@@ -3,8 +3,6 @@
 (function(glue){
   'use strict';
   
-  /* ### PRIVATE ### */
-
   function template(tmpl, data) {
     var re = new RegExp("{{\\s*([a-z0-9_$][\\.a-z0-9_]*)\\s*}}", "gi");
 
@@ -19,12 +17,10 @@
         for ( ; i < len; ++i) {
           html = html[parts[i]];
 
-          // Property not found
           if (html === undefined) {
             throw "glue.template: '" + parts[i] + "' not found in " + placeholder;
           }
 
-          // Return the compiled template
           if (i === len - 1) {
             return html;
           }
@@ -35,7 +31,9 @@
     
   }
   
-  /* ### PUBLIC ### */
+  /**
+   * PUBLIC ******************************
+  */
     
   glue.template = function(tmpl, data) {
     return template(tmpl, data);
