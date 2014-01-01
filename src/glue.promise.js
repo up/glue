@@ -1,6 +1,7 @@
-/*
- *  See https://github.com/stackp/promisejs
- */
+/**
+ * Basic implementation of promises
+ * see https://github.com/stackp/promisejs
+*/
 
 (function(glue) {
 
@@ -32,7 +33,12 @@
     }
     this.callbacks = [];
   };
+  
 
+  /**
+   PUBLIC ∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼∼
+  */
+    
   glue.promise = function() {
     return new Promise();
   };
