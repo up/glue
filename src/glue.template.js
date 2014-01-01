@@ -1,5 +1,9 @@
 /*global setTimeout:true*/
 
+/**
+ * JavaScript micro-templating
+*/
+
 (function(glue){
   'use strict';
   
