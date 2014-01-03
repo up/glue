@@ -1,13 +1,16 @@
 {
   "name": "glue",
-  "version": "0.1.0",
+  "version": "0.7.1",
   "description": "Pluggable js library with jQuery-like API",
   "homepage": "https://github.com/up/glue",
   "author": {
     "name": "Uli Preuss",
     "url": "http://ulipreuss.eu/"
   },
-  "repository": "0.1.0",
+	"repository" : { 
+		"type" : "git", 
+		"url" : "http://github.com/up/glue.git"
+	},
   "bugs": {
     "url": "https://github.com/up/glue/issues"
   },
