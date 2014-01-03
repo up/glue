@@ -19,7 +19,7 @@
         fn = new Promise();
         this.callbacks.push(function() {
           var fnc = func.apply(context, arguments);
-          if (fnc && typeof fnc.then === 'function') {
+          if (fnc && glue.isFunction(fnc.then)) {
             fnc.then(fn.done, fn);
           }
         });
