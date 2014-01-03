@@ -3,7 +3,7 @@
 
 Pluggable library with jQuery-like API
 
-3.48KB gzipped (9.42KB uncompressed)
+3.5KB gzipped (9.45KB uncompressed)
 
 ## glue.core.js
 ### glue(..)
