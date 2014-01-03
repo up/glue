@@ -1,6 +1,5 @@
 /**
  * Basic implementation of promises
- * see https://github.com/stackp/promisejs
 */
 
 (function(glue) {
@@ -9,29 +8,34 @@
     this.callbacks = [];
   }
 
-  Promise.prototype.then = function(func, context) {
-    var p;
-    if (this.isdone) {
-      p = func.apply(context, this.args);
-    } else {
-      p = new Promise();
-      this.callbacks.push(function() {
-        var res = func.apply(context, arguments);
-        if (res && typeof res.then === 'function') {
-          res.then(p.done, p);
-        }
-      });
-    }
-    return p;
-  };
+  Promise.prototype = {
+    
+    then : function(func, context) {
+      var fn;
+      if (this.isdone) {
+        fn = func.apply(context, this.args);
+        this.isdone = false;
+      } else {
+        fn = new Promise();
+        this.callbacks.push(function() {
+          var fnc = func.apply(context, arguments);
+          if (fnc && typeof fnc.then === 'function') {
+            fnc.then(fn.done, fn);
+          }
+        });
+      }
+      return fn;
+    },
 
-  Promise.prototype.done = function() {
-    this.args = arguments;
-    this.isdone = true;
-    for (var i = 0; i < this.callbacks.length; i++) {
-      this.callbacks[i].apply(null, arguments);
+    done : function() {
+      this.args = arguments;
+      this.isdone = true;
+      for (var i = 0; i < this.callbacks.length; i++) {
+        this.callbacks[i].apply(null, arguments);
+      }
+      this.callbacks = [];
     }
-    this.callbacks = [];
+    
   };
   
 
