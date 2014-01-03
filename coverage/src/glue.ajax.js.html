@@ -199,18 +199,18 @@
     <h1>Code coverage report for <span class="entity">src/glue.ajax.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">83.58% <small>(56 / 67)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">89.86% <small>(62 / 69)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">74.51% <small>(38 / 51)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">79.59% <small>(39 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">81.25% <small>(13 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">83.58% <small>(56 / 67)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">89.86% <small>(62 / 69)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
-        Ignored: <span class="metric">8 statements, 13 branches</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric">12 statements, 13 branches</span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">src/</a> &#187; glue.ajax.js</div>
 </div>
@@ -351,7 +351,23 @@
 133
 134
 135
-136</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -383,13 +399,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
 <span class="cline-any cline-yes">7</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">6</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -400,11 +418,8 @@
 <span class="cline-any cline-yes">6</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -414,6 +429,20 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6</span>
@@ -459,8 +488,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -516,14 +548,16 @@
       success = options.success || empty,
       dataType = options.dataType || 'text',
       error = options.error || empty,
-      charset = 'charset=x-user-defined',
+      charset = '',
       finished = false;
-&nbsp;
-    if(dataType === 'json') {
-      http.overrideMimeType( "text/plain; " + charset);
-    } else if(dataType === 'xml') {
-      http.overrideMimeType( "text/xml; " + charset);
-    } 
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (http.overrideMimeType) {
+      charset = 'charset=x-user-defined';
+      if(dataType === 'json') {
+        http.overrideMimeType( "text/plain; " + charset);
+      } else if(dataType === 'xml') {
+        http.overrideMimeType( "text/xml; " + charset);
+      } 
+    }
     
     if(dataType === 'script') {
       glue.getScript(url, success);
@@ -531,25 +565,36 @@
       http.open(type, url, async);
       if(type === 'POST') {
         http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      }    
+      } 
       http.onreadystatechange = <span class="fstat-no" title="function not covered" >function() {</span>
-        /* istanbul ignore else */
-<span class="cstat-no" title="statement not covered" >        if (http.readyState !== 4 &amp;&amp; http.status !== 200) {</span>
-<span class="cstat-no" title="statement not covered" >          if(!finished){</span>
-<span class="cstat-no" title="statement not covered" >            finished = true;</span>
-<span class="cstat-no" title="statement not covered" >            error();      </span>
+		    /* istanbul ignore if */
+<span class="cstat-no" title="statement not covered" >        if (http.readyState === 4) {</span>
+          // continue only if HTTP status is "OK"
+<span class="cstat-skip" title="statement not covered" >          if (http.status === 200) {</span>
+<span class="cstat-skip" title="statement not covered" >            try {</span>
+<span class="cstat-skip" title="statement not covered" >              if(dataType === 'text' || dataType === 'html') {           </span>
+<span class="cstat-skip" title="statement not covered" >                success(http.responseText);           </span>
+              } else <span class="cstat-skip" title="statement not covered" >if (dataType === 'xml') {</span>
+<span class="cstat-skip" title="statement not covered" >                success(http.responseXML);           </span>
+              } else <span class="cstat-skip" title="statement not covered" >if (dataType === 'json') {</span>
+<span class="cstat-skip" title="statement not covered" >                success(JSON.parse(http.responseText));          </span>
+              } 
+<span class="cstat-skip" title="statement not covered" >              return;</span>
+            }
+            catch (e) {
+              // display error message
+              //alert("Error reading the response: " + e.toString());
+            }
           }
-<span class="cstat-no" title="statement not covered" >          return;</span>
-        } else <span class="cstat-skip" title="statement not covered" >if (http.readyState === 4 &amp;&amp; http.status === 200){</span>
-<span class="cstat-skip" title="statement not covered" >          if(dataType === 'text' || dataType === 'html') {</span>
-<span class="cstat-skip" title="statement not covered" >            success(http.responseText);           </span>
-          } else <span class="cstat-skip" title="statement not covered" >if (dataType === 'xml') {</span>
-<span class="cstat-skip" title="statement not covered" >            success(http.responseXML);           </span>
-          } else <span class="cstat-skip" title="statement not covered" >if (dataType === 'json') {</span>
-<span class="cstat-skip" title="statement not covered" >            success(JSON.parse(http.responseText));          </span>
-          } 
-<span class="cstat-skip" title="statement not covered" >          return;</span>
-        }
+          else {
+            // display status message
+            //alert("There was a problem retrieving the data:\n" + http.statusText);
+<span class="cstat-skip" title="statement not covered" >            if(!finished){</span>
+<span class="cstat-skip" title="statement not covered" >              finished = true;</span>
+<span class="cstat-skip" title="statement not covered" >              error('ERROR');      </span>
+            }
+          }
+        }        
       };
       http.send(data);
     }  
@@ -594,7 +639,10 @@
 &nbsp;
   function serialize(context) {
     var s = {};
-    [].forEach.call(context[0].getElementsByTagName('input'), function(el) {
+    // [].forEach.call(context[0].getElementsByTagName('input'), function(el) {
+//       s[el.name] = el.value;
+//     });
+    glue(context[0]).find('input').each(function(el) {
       s[el.name] = el.value;
     });
     return s;
@@ -626,7 +674,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jan 01 2014 19:20:01 GMT+0100 (CET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jan 03 2014 00:17:58 GMT+0100 (CET)</div>
 </div>
 
 <script src="../prettify.js"></script>

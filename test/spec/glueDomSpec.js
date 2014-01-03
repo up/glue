@@ -1,7 +1,7 @@
 /*jslint browser:true, plusplus:true, todo: true, devel:true */
 /*global describe:true, it:true, expect:true, glue:true, glue:true */
 
-describe("glue.dom.js ..............................................................", function() {
+describe("glue.dom.js > > > > > ", function() {
 
   describe("glue(..).remove()", function() {
     it("Remove elements", function() {
@@ -233,8 +233,8 @@ describe("glue.dom.js ..........................................................
   describe("glue.parseHTML()", function() {
     it("Create DOM element from string", function() {
       var domObject = glue.parseHTML('<p/>');
-      var objectType = Object.prototype.toString.call(domObject);
-      expect(objectType).toEqual("[object HTMLParagraphElement]");
+      var objectType = domObject.nodeName;
+      expect(objectType).toEqual("P");
 
     });
   });

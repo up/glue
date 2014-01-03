@@ -28,14 +28,16 @@
       success = options.success || empty,
       dataType = options.dataType || 'text',
       error = options.error || empty,
-      charset = 'charset=x-user-defined',
+      charset = '',
       finished = false;
-
-    if(dataType === 'json') {
-      http.overrideMimeType( "text/plain; " + charset);
-    } else if(dataType === 'xml') {
-      http.overrideMimeType( "text/xml; " + charset);
-    } 
+    if (http.overrideMimeType) {
+      charset = 'charset=x-user-defined';
+      if(dataType === 'json') {
+        http.overrideMimeType( "text/plain; " + charset);
+      } else if(dataType === 'xml') {
+        http.overrideMimeType( "text/xml; " + charset);
+      } 
+    }
     
     if(dataType === 'script') {
       glue.getScript(url, success);
@@ -43,25 +45,36 @@
       http.open(type, url, async);
       if(type === 'POST') {
         http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      }    
+      } 
       http.onreadystatechange = function() {
-        /* istanbul ignore else */
-        if (http.readyState !== 4 && http.status !== 200) {
-          if(!finished){
-            finished = true;
-            error();      
+		    /* istanbul ignore if */
+        if (http.readyState === 4) {
+          // continue only if HTTP status is "OK"
+          if (http.status === 200) {
+            try {
+              if(dataType === 'text' || dataType === 'html') {           
+                success(http.responseText);           
+              } else if (dataType === 'xml') {
+                success(http.responseXML);           
+              } else if (dataType === 'json') {
+                success(JSON.parse(http.responseText));          
+              } 
+              return;
+            }
+            catch (e) {
+              // display error message
+              //alert("Error reading the response: " + e.toString());
+            }
           }
-          return;
-        } else if (http.readyState === 4 && http.status === 200){
-          if(dataType === 'text' || dataType === 'html') {
-            success(http.responseText);           
-          } else if (dataType === 'xml') {
-            success(http.responseXML);           
-          } else if (dataType === 'json') {
-            success(JSON.parse(http.responseText));          
-          } 
-          return;
-        }
+          else {
+            // display status message
+            //alert("There was a problem retrieving the data:\n" + http.statusText);
+            if(!finished){
+              finished = true;
+              error('ERROR');      
+            }
+          }
+        }        
       };
       http.send(data);
     }  
@@ -106,7 +119,10 @@
 
   function serialize(context) {
     var s = {};
-    [].forEach.call(context[0].getElementsByTagName('input'), function(el) {
+    // [].forEach.call(context[0].getElementsByTagName('input'), function(el) {
+//       s[el.name] = el.value;
+//     });
+    glue(context[0]).find('input').each(function(el) {
       s[el.name] = el.value;
     });
     return s;

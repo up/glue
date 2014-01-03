@@ -1,7 +1,7 @@
 /*jslint browser:true */
 /*global describe:true, it:true, expect:true, glue:true, glue:true */
 
-describe("glue.utilities.js ........................................................", function () {
+describe("glue.utilities.js > > > > > ", function () {
 
   describe("glue.extend()", function() {
     it("Merge the contents of two or more objects together into the first object.", function () {

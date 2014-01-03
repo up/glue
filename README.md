@@ -1,11 +1,13 @@
-# glue
+# glueJS
+
+
 Pluggable library with jQuery-like API
 
 3.48KB gzipped (9.42KB uncompressed)
 
 ## glue.core.js
 ### glue(..)
-Pass selector, element, number or function
+Pass selector, element, number or function.
 Return a collection of matched elements either found in the DOM based on passed argument(s) or ..
 ### glue.version
 Get glue version

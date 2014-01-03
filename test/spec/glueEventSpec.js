@@ -1,7 +1,7 @@
 /*jslint browser:true, plusplus:true, todo: true, devel:true */
 /*global describe:true, it:true, expect:true, glue:true, glue:true */
 
-describe("glue.event.js ............................................................", function () {
+describe("glue.event.js > > > > > ", function () {
   
   describe("glue(..).on()", function() {
     it("Attach an event handler function for one or more events to the selected elements.", function () {

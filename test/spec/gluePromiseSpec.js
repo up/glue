@@ -1,7 +1,7 @@
 /*jslint browser:true */
 /*global describe:true, it:true, expect:true, glue:true */
 
-describe("glue.promise.js ..............................................................", function () {
+describe("glue.promise.js > > > > > ", function () {
 
   var xxx = 0;
   

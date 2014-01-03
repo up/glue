@@ -1,7 +1,7 @@
 /*jslint browser:true, plusplus:true, todo: true, devel:true */
 /*global describe:true, it:true, expect:true, glue:true, glue:true */
 
-describe("glue.ajax.js .............................................................", function () {
+describe("glue.ajax.js > > > > > ", function () {
   
   describe("glue.ajax()", function() {
     it("HTML", function () {
@@ -28,7 +28,7 @@ describe("glue.ajax.js .........................................................
   
     it("JSON", function () {
     
-      glue.ajax('html/ajax/test.json', {
+      glue.ajax('html/ajax/test.json.php', {
         dataType: 'json',
         success: function( data ) {
           expect(data.one).toEqual(1);
@@ -52,8 +52,8 @@ describe("glue.ajax.js .........................................................
     
       glue.ajax('html/ajax/test33.htm', {
         dataType: 'html',
-        error: function() {
-          expect('').toBe('');
+        error: function(msg) {
+          expect(msg).toBe('ERROR');
         }
       });
 

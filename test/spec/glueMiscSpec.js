@@ -1,7 +1,7 @@
 /*jslint browser:true */
 /*global describe:true, it:true, expect:true, glue:true */
 
-describe("glue.misc.js ..............................................................", function () {
+describe("glue.misc.js > > > > > ", function () {
 
   describe("glue(x).times()", function() {
     it("Repeat functions x times", function () {

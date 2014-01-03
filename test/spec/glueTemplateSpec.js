@@ -1,7 +1,7 @@
 /*jslint browser:true */
 /*global describe:true, it:true, expect:true, glue:true */
 
-describe("glue.template.js ..............................................................", function () {
+describe("glue.template.js > > > > > ", function () {
 
   describe("glue.template()", function() {
     it("Define and use a HTML templates", function () {

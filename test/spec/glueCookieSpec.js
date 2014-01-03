@@ -1,10 +1,10 @@
 /*jslint browser:true */
 /*global describe:true, it:true, expect:true, glue:true, glue:true */
 
-describe("glue.cookie.js ..............................................................", function () {
+describe("glue.cookie.js > > > > > ", function () {
 
   afterEach(function () {
-    glue.removeCookie('foo');
+    //glue.removeCookie('foo');
   });
 
   describe("glue.cookie()", function() {
@@ -38,7 +38,7 @@ describe("glue.cookie.js .......................................................
     it("Set cookie with expires string (create session cookie)", function () {
       // How check if session cookie?
       glue.cookie('foo2', 'foobar2', {
-        expires: '1',
+        expires: 1,
         path: '/',
         domain: location.host
       });
@@ -68,11 +68,12 @@ describe("glue.cookie.js .......................................................
       expect(glue.removeCookie('foo1')).toBe(false);
 
     });
+		
     it("Remove cookie", function () {
 
       expect(glue.removeCookie('nonexists')).toBe(false);
 
     });
-  });
+ });
       
 });

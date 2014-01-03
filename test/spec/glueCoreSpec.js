@@ -1,7 +1,7 @@
 /*jslint browser:true */
 /*global describe:true, it:true, expect:true, glue:true, glue:true */
 
-describe("glue.core.js .............................................................", function () {
+describe("glue.core.js > > > > > ", function () {
 
   describe("glue(..)", function() {
     it("Pass selector", function () {

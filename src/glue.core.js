@@ -1,13 +1,12 @@
 /**
- * @preserve glueJS v.0.7.0
+ * @preserve glueJS v.0.7.1
  * | Pluggable js library with jQuery-like API
  * | github.com/up/glue
  * | 2013 Uli Preuss
 *//* 
  * 
  * Support for IE8+ and modern browsers
- * and all CSS3 selectors
- * based on ki.js (c) 2012 Denis Ciccale
+ * and all CSS3 selectors (in IE8 only supported)
 */
 
 /*jslint browser: true */
@@ -18,7 +17,7 @@
   
   var args, api, arr = [], version = '0.7.0';
     
-  function nodeListToArray(nodelist) {
+  function nodeListToArray(nodelist) {    
      var node,
        nodeArray = [],
        i = -1;
@@ -38,11 +37,15 @@
         if(glue.isElement(obj)){
           args = [obj];
         } else if (glue.isString(obj)) {
-          args = nodeListToArray(doc.querySelectorAll(obj));
+          try{
+            args = nodeListToArray(doc.querySelectorAll(obj));            
+          } catch(e) {
+            args = [];
+          }
         } else if(glue.isFunction(obj)) {
           glue(doc).ready(obj); 
         } else {
-          args = null;
+          args = [];
         } 
         arr.push.apply(context, args);
       }        
