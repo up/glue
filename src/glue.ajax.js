@@ -47,7 +47,7 @@
         http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       } 
       http.onreadystatechange = function() {
-		    /* istanbul ignore if */
+        /* istanbul ignore if */
         if (http.readyState === 4) {
           // continue only if HTTP status is "OK"
           if (http.status === 200) {
